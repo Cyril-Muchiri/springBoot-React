@@ -16,11 +16,18 @@ public class EmployeeInit implements CommandLineRunner {
     private List<Employee> employeeRepo = new ArrayList<>();
 
     public void creatEmployee() {
-        Employee mary = new Employee(1L, "Mary Mutua", "07****454*9", "101-uthiru", LocalDate.of(1999, 7, 7));
+        Long id = 1L;
+
+        Employee mary = new Employee(id, "Mary Mutua", "07****454*9", "101-uthiru", LocalDate.of(1999, 7, 7));
         mary.setAge();
-        Employee ken = new Employee(2L, "Ken Ruto", "07****454*9", "101-uthiru", LocalDate.of(1990, 7, 7));
+        Employee ken = new Employee(++id, "Ken Ruto", "07****454*9", "101-uthiru", LocalDate.of(1990, 7, 7));
         ken.setAge();
-        employeeRepo.addAll(List.of(mary, ken));
+        Employee mercy = new Employee(++id, "Mercy Cheboi", "07****454*9", "101-uthiru", LocalDate.of(1995, 10, 2));
+        mercy.setAge();
+        Employee nancy = new Employee(++id, "Nancy Magut", "07****454*9", "101-uthiru", LocalDate.of(2002, 12, 2));
+        nancy.setAge();
+
+        employeeRepo.addAll(List.of(mary, ken, mercy, nancy));
     }
 
     public List<Employee> displayRepo() {
